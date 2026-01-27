@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: 20px;
+            background-color: hsl(165, 100%, 75%);
+        }
+
+        
+        h2 {
+            margin-top: 0;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            margin: 8px 0;
+            padding: 8px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            font-size: large;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: hsla(0, 0%, 0%, 0.8);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .post {
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 16px;
+        }
+
+        .post h3 {
+            margin: 0 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>SeptLogs (Saptaparno's Blog)</h1>
+    <a href="./portfolio.html">Check out my portfolio</a><br/><br/>
+    <input id="title" placeholder="Post title" />
+    <textarea id="content" placeholder="Post content"></textarea>
+    <button onclick="addPost()">Add Post</button>
+
+    <section id="posts"></section>
+
+    <script>
+        function addPost() {
+            const title = document.getElementById("title").value;
+            const content = document.getElementById("content").value;
+            if (!title || !content) return;
+            const post = document.createElement("article");
+            post.className = "post";
+            post.innerHTML = `<h3>${title}</h3>
+                              <p>${content}</p>`;
+            document.getElementById("posts").prepend(post);
+            document.getElementById("title").value = "";
+            document.getElementById("content").value = "";
+        }
+    </script>
+
+</body>
+
+</html>
