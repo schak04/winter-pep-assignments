@@ -28,11 +28,15 @@
         .buttons:active {
             transform: scale(0.98);
         }
+        #result {
+            padding: 0px 5px;
+        }
     </style>
 </head>
 <body>
     <div id="calculatorContainer">
         <div id="calculatorDisplay"></div>
+        <div id="result"></div>
         <div id="buttonContainer">
             <button class="buttons" onclick="number(1)">1</button>
             <button class="buttons" onclick="number(2)">2</button>
@@ -52,9 +56,28 @@
 
     <script>
         const calculatorDisplay = document.getElementById("calculatorDisplay");
+        const result = document.getElementById("result");
 
         function number(num) {
             calculatorDisplay.textContent += String(num);
+        }
+        function add() {
+            calculatorDisplay.textContent+="+";
+        }
+        function subtract() {
+            calculatorDisplay.textContent+="-";
+        }
+        function multiply() {
+            calculatorDisplay.textContent+="*";
+        }
+        function divide() {
+            calculatorDisplay.textContent+="/";
+        }
+        function modulo() {
+            calculatorDisplay.textContent+="%";
+        }
+        function calculate() {
+            result.textContent = eval(calculatorDisplay.textContent);
         }
 
     </script>
