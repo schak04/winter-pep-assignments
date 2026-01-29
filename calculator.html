@@ -68,18 +68,23 @@
             calculatorDisplay.textContent += String(num);
         }
         function add() {
+            if ((calculatorDisplay.textContent).endsWith("+")) return;
             calculatorDisplay.textContent+="+";
         }
         function subtract() {
+            if ((calculatorDisplay.textContent).endsWith("-")) return;
             calculatorDisplay.textContent+="-";
         }
         function multiply() {
+            if ((calculatorDisplay.textContent).endsWith("*")) return;
             calculatorDisplay.textContent+="*";
         }
         function divide() {
+            if ((calculatorDisplay.textContent).endsWith("/")) return;
             calculatorDisplay.textContent+="/";
         }
         function modulo() {
+            if ((calculatorDisplay.textContent).endsWith("%")) return;
             calculatorDisplay.textContent+="%";
         }
         function calculate() {
