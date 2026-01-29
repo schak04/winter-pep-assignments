@@ -7,10 +7,15 @@
     <style>
         #calculatorContainer {
             border: 4px solid;
+            font-size: large;
         }
         #calculatorDisplay {
             border: 1px solid;
             height: 40px;
+            padding: 0px 5px;
+        }
+        #result {
+            padding: 0px 5px;
         }
         #buttonContainer {
             background-color: black;
@@ -28,8 +33,8 @@
         .buttons:active {
             transform: scale(0.98);
         }
-        #result {
-            padding: 0px 5px;
+        #clearBtn {
+            width: 85%;
         }
     </style>
 </head>
@@ -51,6 +56,7 @@
             <button class="buttons" onclick="divide()">/</button>
             <button class="buttons" onclick="modulo()">%</button>
             <button class="buttons" onclick="calculate()">=</button>
+            <button class="buttons" id="clearBtn" onclick="c()">C</button>
         </div>
     </div>
 
@@ -78,6 +84,10 @@
         }
         function calculate() {
             result.textContent = eval(calculatorDisplay.textContent);
+        }
+        function c() {
+            calculatorDisplay.textContent="";
+            result.textContent="";
         }
 
     </script>
