@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #calculatorContainer {
+            border: 4px solid;
+        }
+        #calculatorDisplay {
+            border: 1px solid;
+            height: 40px;
+        }
+        #buttonContainer {
+            background-color: black;
+        }
+        .buttons {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: hsl(0, 0%, 78%);
+            cursor: pointer;
+        }
+        .buttons:hover {
+            background-color: hsl(0, 0%, 55%);
+        }
+        .buttons:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div id="calculatorContainer">
+        <div id="calculatorDisplay"></div>
+        <div id="buttonContainer">
+            <button class="buttons" onclick="number(1)">1</button>
+            <button class="buttons" onclick="number(2)">2</button>
+            <button class="buttons" onclick="number(3)">3</button><button class="buttons" onclick="add()">+</button><br/>
+            <button class="buttons" onclick="number(4)">4</button>
+            <button class="buttons" onclick="number(5)">5</button>
+            <button class="buttons" onclick="number(6)">6</button><button class="buttons" onclick="subtract()">-</button><br/>
+            <button class="buttons" onclick="number(7)">7</button>
+            <button class="buttons" onclick="number(8)">8</button>
+            <button class="buttons" onclick="number(9)">9</button><button class="buttons" onclick="multiply()">*</button><br/>
+            <button class="buttons" onclick="number(0)">0</button>
+            <button class="buttons" onclick="divide()">/</button>
+            <button class="buttons" onclick="modulo()">%</button>
+            <button class="buttons" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const calculatorDisplay = document.getElementById("calculatorDisplay");
+
+        function number(num) {
+            calculatorDisplay.textContent += String(num);
+        }
+
+    </script>
+</body>
+</html>
