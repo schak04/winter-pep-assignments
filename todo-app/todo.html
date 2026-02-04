@@ -6,11 +6,13 @@
     <title>Todo App</title>
     <style>
         * {
-            background-color: hsla(0, 0%, 0%, 0.704);
+            background-color: hsla(0, 0%, 0%, 0.759);
             font-family: Arial;
+            margin: 10px;
         }
         body {
             padding: 20px;
+            width: 260px;
         }
         ul {
             color: white;
@@ -27,6 +29,7 @@
             cursor: pointer;
             border: none;
             border-radius: 10px;
+            margin: 2px;
             padding: 5px 10px;
         }
         button:active {
@@ -47,7 +50,7 @@
     </style>
 </head>
 <body>
-    <input id="input" type="text" placeholder="Enter task here">
+    <input id="input" type="text" placeholder="Enter task here"><br/>
     <button id="addTaskBtn" onclick="addTask()">Add Task</button>
     <button id="removeTasksBtn" onclick="removeTasks()">Remove Tasks</button>
     <ul id="ul"></ul>

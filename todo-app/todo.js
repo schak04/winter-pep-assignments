@@ -7,7 +7,7 @@ function displayTasks() {
         const li = document.createElement("li");
         li.innerText = task;
         const fBtn = document.createElement("button");
-        fBtn.textContent = "Finished";
+        fBtn.textContent = "Mark Finished";
         fBtn.onmouseover = () => fBtn.style.backgroundColor = "hsl(39, 100%, 70%)";
         fBtn.onmouseout = () => fBtn.style.backgroundColor = "orange";
         fBtn.on
@@ -18,7 +18,8 @@ function displayTasks() {
             displayTasks();
         };
         fBtn.style.backgroundColor = "orange";
-        ul.append(li, fBtn);
+        ul.append(li);
+        li.append(fBtn);
     })
 }
 
