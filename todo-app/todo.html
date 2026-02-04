@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        * {
+            background-color: hsla(0, 0%, 0%, 0.704);
+            font-family: Arial;
+        }
+        body {
+            padding: 20px;
+        }
+        ul {
+            color: white;
+        }
+        input {
+            background-color: hsl(60, 100%, 65%);
+            color: black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        button {
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        #addTaskBtn {
+            background-color: greenyellow;
+        }
+        #addTaskBtn:hover {
+            background-color: hsl(84, 100%, 75%);
+        }
+        #removeTasksBtn {
+            background-color: orange;
+        }
+        #removeTasksBtn:hover {
+            background-color: hsl(39, 100%, 70%);
+        }
+    </style>
+</head>
+<body>
+    <input id="input" type="text" placeholder="Enter task here">
+    <button id="addTaskBtn" onclick="addTask()">Add Task</button>
+    <button id="removeTasksBtn" onclick="removeTasks()">Remove Tasks</button>
+    <ul id="ul"></ul>
+    <script src="todo.js"></script>
+</body>
+</html>
