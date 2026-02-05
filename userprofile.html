@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <style>
+        .card {
+            background-color: black;
+            color: white;
+            width: fit-content;
+            height: fit-content;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px;
+            font-size: 20px;
+            font-family: Arial;
+            box-shadow: 10px 10px 40px;
+        }
+
+        .admin {
+            color: aqua;
+            border: 2px solid hsla(159, 98%, 48%, 0.216);
+        }
+
+        .user {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        function UserProfile({ role, name, age, profession }) {
+            return role === "Admin" ? (
+                <div className="admin card">
+                    <p>Name: {name}</p>
+                    <p>Age: {age}</p>
+                    <p>Profession: {profession}</p>
+                    <p>Role: {role}</p>
+                </div>
+            ) : role === "User" ? (
+                <div className="user card">
+                    <p>Name: {name}</p>
+                    <p>Age: {age}</p>
+                    <p>Profession: {profession}</p>
+                    <p>Role: {role}</p>
+                </div>
+            ) : null;
+        }
+        function App() {
+            return (
+                <>
+                    <UserProfile role="Admin" name="Saptaparno Chakraborty" age={21} profession="Software Engineer" />
+                    <UserProfile role="User" name="Susan" age={22} profession="Digital Artist" />
+                    <UserProfile role="User" name="Abhimanyu" age={25} profession="Data Analyst" />
+                    <UserProfile role="User" name="Rachel" age={26} profession="Surgeon" />
+                    <UserProfile role="User" name="Wakana Gojo" age={19} profession="Craftsman" />
+                    <UserProfile role="User" name="Kitagawa Marin" age={20} profession="Model" />
+                    <UserProfile role="User" name="Loid" age={30} profession="Spy" />
+                    <UserProfile role="User" name="Yor" age={31} profession="Assassin" />
+                </>
+            );
+        }
+        root.render(<App />);
+    </script>
+</body>
+
+</html>

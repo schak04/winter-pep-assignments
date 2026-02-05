@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Controlled Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            background-color: hsl(49, 100%, 50%);
+        }
+        fieldset {
+            border-radius: 20px;
+            border: 2px solid gray;
+            width: 360px;
+            background-color: hsl(160, 100%, 80%);
+        }
+        legend {
+            background-color: black;
+            color: white;
+            padding: 2px 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        select {
+            font-size: 1.06rem;
+            padding: 4px;
+            color: hsl(0, 0%, 20%);
+            cursor: pointer;
+        }
+        button {
+            background-color: greenyellow;
+            font-size: 1.2rem;
+            border: 2px solid hsl(120, 100%, 63%);
+            box-shadow: 5px 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: hsl(120, 100%, 63%);
+        }
+        button:active {
+            background-color: hsl(120, 100%, 45%);
+            border: 2px solid hsl(120, 100%, 45%);
+            transform: scale(0.98);
+        }
+        #submitted {
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding: 5px 40px 5px 20px;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        const initialFormDataObject = {
+            name: "",
+            email: "",
+            password: "",
+            age: "",
+            gender: ""
+        };
+
+        function Form() {
+            const [formData, setFormData] = React.useState(initialFormDataObject);
+            const [submittedData, setSubmittedData] = React.useState(null);
+
+            function handleSubmit(e) {
+                e.preventDefault();
+                alert("Submitted successfully");
+                setSubmittedData(formData);
+                setFormData(initialFormDataObject);
+            }
+
+            return (
+                <>
+                    <form onSubmit={handleSubmit}>
+                        <fieldset>
+                            <legend>A Simple Controlled Form</legend>
+                            <label>
+                                Name:{" "}
+                                <input
+                                    type="text"
+                                    value={formData.name}
+                                    onChange={(e) =>
+                                        setFormData((fd) => ({ ...fd, name: e.target.value }))
+                                    }
+                                    required
+                                />
+                            </label>
+                            <br /><br />
+
+                            <label>
+                                Email:{" "}
+                                <input
+                                    type="email"
+                                    value={formData.email}
+                                    onChange={(e) =>
+                                        setFormData((fd) => ({ ...fd, email: e.target.value }))
+                                    }
+                                    required
+                                />
+                            </label>
+                            <br /><br />
+
+                            <label>
+                                Password:{" "}
+                                <input
+                                    type="password"
+                                    value={formData.password}
+                                    onChange={(e) =>
+                                        setFormData((fd) => ({ ...fd, password: e.target.value }))
+                                    }
+                                    required
+                                />
+                            </label>
+                            <br /><br />
+
+                            <label>
+                                Age:{" "}
+                                <input
+                                    type="number"
+                                    value={formData.age}
+                                    onChange={(e) =>
+                                        setFormData((fd) => ({ ...fd, age: Number(e.target.value) }))
+                                    }
+                                    required
+                                />
+                            </label>
+                            <br /><br />
+
+                            <label>
+                                Gender:{" "}
+                                <select
+                                    value={formData.gender}
+                                    onChange={e =>
+                                        setFormData((fd) => ({ ...fd, gender: e.target.value }))
+                                    }
+                                    required
+                                >
+                                    <option value="">Select your gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Non-binary">Non-binary</option>
+                                </select>
+                            </label>
+                            <br /><br />
+
+                            <button type="submit">Submit</button>
+                        </fieldset>
+                    </form>
+
+                    <br />
+
+                    {submittedData && (
+                        <div id="submitted">
+                            <p>Name: {submittedData.name}</p>
+                            <p>Email: {submittedData.email}</p>
+                            <p>Age: {submittedData.age}</p>
+                            <p>Gender: {submittedData.gender}</p>
+                        </div>
+                    )}
+                </>
+            );
+        }
+
+        function App() {
+            return <Form />;
+        }
+
+        root.render(<App />);
+    </script>
+
+</body>
+
+</html>
