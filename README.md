@@ -1,3 +1,4 @@
 # Winter PEP Assignments
 
-© 2026 [Saptaparno Chakraborty](https://github.com/schak04)
+© 2026 [Saptaparno Chakraborty](https://github.com/schak04).  
+All rights reserved.
